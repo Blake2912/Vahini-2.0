@@ -24,4 +24,5 @@ shortest_route = nx.shortest_path(graph, orig_node, dest_node, weight=optimizer)
 
 print(shortest_route)
 shortest_route_map = ox.plot_route_folium(graph, shortest_route)
+# This saves it on html file to view it easily
 shortest_route_map.save('route.html')
