@@ -76,3 +76,8 @@ flask run app.py
 ## References
 - <a href="https://networkx.org">NetworkX</a>
 - <a href="https://osmnx.readthedocs.io/en/stable/">OSMNX</a>
+
+## Contributors
+* @Blake2912
+* @amartyanambiar
+* @healertrix
