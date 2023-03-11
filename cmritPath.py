@@ -67,3 +67,8 @@ class CmritField:
         shortest_route_map = ox.plot_route_folium(G, shortest_route)
         # This saves it on html file in output folder
         shortest_route_map.save('output/route.html')
+
+
+cmritPath = CmritField()
+cmritPath.save_graph()
+cmritPath.find_shortest_route()
