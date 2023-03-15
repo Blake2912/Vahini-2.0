@@ -1,6 +1,6 @@
 # Vahini: A Self-Driving Auto-irrigation Electric Vehicle
 
-Watering trees is a vital but tedious task for farmers and gardeners. The idea behind _Project Vahini_ is to use a _self-driving vehicle_ to irrigate plantations. The vehicle is equipped with sensors that detect the location of the trees. It then moves along a predefined path and sprays water according to the needs of each plant.
+Watering trees is a vital but tedious task for farmers and gardeners. The idea behind project **Vahini** is to use a **self-driving vehicle** to irrigate plantations. The vehicle is equipped with sensors that detect the location of the trees. It then moves along a predefined path and sprays water according to the needs of each plant.
 
 ## Working of the Project
 
