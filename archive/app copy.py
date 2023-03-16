@@ -8,7 +8,7 @@ The following parts are implemented in this code
 import random
 
 from flask import Flask, render_template
-from nn import neural_net
+from archive.nn import neural_net
 from math import pi, asin, cos, sqrt, atan2
 
 import serial
@@ -87,12 +87,14 @@ def get_cur():
             current_coord[1] -= random.randint(0, 6)
         current_coord[0] += random.randint(0, 6)
         current_coord[1] += random.randint(0, 6)
-        print("Current coordinates x:{0} y:{1}".format(current_coord[0],current_coord[1]))
+        print("Current coordinates x:{0} y:{1}".format(
+            current_coord[0], current_coord[1]))
 
 
 def distance(lat1, lon1, lat2, lon2):
     p = pi / 180
-    a = 0.5 - cos((lat2 - lat1) * p) / 2 + cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2
+    a = 0.5 - cos((lat2 - lat1) * p) / 2 + cos(lat1 * p) * \
+        cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2
     return 12742 * asin(sqrt(a))
 
 
@@ -122,7 +124,8 @@ def frame_step(action):
     correction_angle = abs(deg - cur_north)
     print("correct_angle:{0}".format(correction_angle))
     # correction_angle = (abs(correction_angle))
-    dis = distance(destination_coord[0], destination_coord[1], current_coord[0], current_coord[1])
+    dis = distance(
+        destination_coord[0], destination_coord[1], current_coord[0], current_coord[1])
     print("dis" + str(dis))
     normalized_readings = []
     dis = dis * 1000

@@ -3,7 +3,7 @@ import time
 import string
 import pynmea2
 import numpy as np
-from nn import neural_net
+from archive.nn import neural_net
 from math import cos, asin, sqrt, pi, atan2
 
 from flask import Flask, redirect, url_for, render_template, Response, request
@@ -96,7 +96,8 @@ def get_cur():
 
 def distance(lat1, lon1, lat2, lon2):
     p = pi / 180
-    a = 0.5 - cos((lat2 - lat1) * p) / 2 + cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2
+    a = 0.5 - cos((lat2 - lat1) * p) / 2 + cos(lat1 * p) * \
+        cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2
     return 12742 * asin(sqrt(a))
 
 
