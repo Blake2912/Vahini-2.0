@@ -26,7 +26,7 @@ The project is currently under development and has great potential for improving
 You would have to setup a virtual environment (it is optional but <b>recommeded</b>) and install all the packages using the pip package installer.<br>
 The required packages are listed out in the in `requirements.txt`
 
-For more information and detailed step by step procedure check the [SETUP.md](setup.md).
+For more information and detailed step by step procedure check the [SETUP.md](SETUP.md).
 
 For more information regarding virtual environments visit this here: <a href="https://docs.python.org/3/library/venv.html">venv</a>.
 
