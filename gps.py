@@ -5,6 +5,7 @@ import time
 import string
 import pynmea2
 
+
 class Gps:
     def __init__(self):
         self.port = "/dev/ttyAMA0"
@@ -13,7 +14,7 @@ class Gps:
             self.sio = io.TextIOWrapper(io.BufferedRWPair(self.ser, self.ser))
         except:
             self.ser = None
-    
+
     def get_gps_coordinates(self):
         """
         Params: None
@@ -36,17 +37,17 @@ class Gps:
                     60 + float(msg.longitude_seconds) / 3600
 
                 file1.write("{}, {}\n".format(lat_dec, long_dec))
-                return (lat_dec,long_dec)
+                return (lat_dec, long_dec)
 
         except serial.SerialException as e:
             print('Device error : {}'.format(e))
-            return (-9999,-9999) # Signifies error 
+            return (-9999, -9999)  # Signifies error
 
         except pynmea2.ParseError as e:
             print("Parse error {}".format(e))
-            return (-9999,-9999) # Signifies error
-    
-    def mock_gps_coordinates(self,state, current_coordinates):
+            return (-9999, -9999)  # Signifies error
+
+    def mock_gps_coordinates(self, state, current_coordinates):
         """
         Params : state: int, initial_coordinates : Tuple final_coordinates : tuple
 
@@ -57,11 +58,10 @@ class Gps:
         """
         if state == 1:
             # Forward
-            return (current_coordinates[0]+0.0001,current_coordinates[1]+0.0001)
+            return (current_coordinates[0]+0.0001, current_coordinates[1]+0.0001)
         elif state == -1:
             # Backward
-            return (current_coordinates[0]-0.0001,current_coordinates[1]-0.0001)
+            return (current_coordinates[0]-0.0001, current_coordinates[1]-0.0001)
         elif state == 0:
             # Stop
             return current_coordinates
-
