@@ -13,6 +13,15 @@ The project is currently under development and has great potential for improving
 
 <img src="./doc-assets/Vahini_Components.png"></img>
 
+### Project Structure
+
+```
+app.py : Starts the flask server
+cmritPath.py : Contains a Class that has methods to define the path in CMRIT and return map in output folder
+drive.py :
+
+```
+
 ## Setup Instructions
 
 ### Pre-requistes for setup
