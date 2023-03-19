@@ -1,10 +1,12 @@
 from flask import Flask, render_template
 from drive import Drive
 from automation import Automation
+from coordinates import Coordinates
 
 app = Flask(__name__)
 
 driver = Drive()
+
 
 @app.route("/")
 def render():
@@ -44,6 +46,10 @@ def right():
 @app.route("/automate_vehicle")
 def automate_vehicle():
     # TODO:: Instantiate the class and call required functions
+    finalPoint = Coordinates('basic_science',(12.96626,77.71211))
+    initPoint = Coordinates('ganesha_statue',(12.96598,77.71148))
+    automate_drive = Automation(initPoint,finalPoint)
+    automate_drive.automate_linear()
     return "a"
 
 
