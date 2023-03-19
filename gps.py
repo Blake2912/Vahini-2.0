@@ -8,13 +8,16 @@ import pynmea2
 class Gps:
     def __init__(self):
         self.port = "/dev/ttyAMA0"
-        self.ser = serial.Serial(self.port, baudrate=9600, timeout=0.5)
-        self.sio = io.TextIOWrapper(io.BufferedRWPair(self.ser, self.ser))
+        try:
+            self.ser = serial.Serial(self.port, baudrate=9600, timeout=0.5)
+            self.sio = io.TextIOWrapper(io.BufferedRWPair(self.ser, self.ser))
+        except:
+            self.ser = None
     
     def get_gps_coordinates(self):
         """
         Params: None
-        Returns: (Lat: float, Lng: float) 
+        Returns: Tuple (Lat: float, Lng: float) 
         """
         try:
             file1 = open("/home/pi/gps/LatLong.txt", "a")
@@ -42,3 +45,23 @@ class Gps:
         except pynmea2.ParseError as e:
             print("Parse error {}".format(e))
             return (-9999,-9999) # Signifies error
+    
+    def mock_gps_coordinates(self,state, current_coordinates):
+        """
+        Params : state: int, initial_coordinates : Tuple final_coordinates : tuple
+
+        variable state has the following cases
+            1. Forward ==> 1
+            2. Backward ==> -1
+            3. Stop ==> 0
+        """
+        if state == 1:
+            # Forward
+            return (current_coordinates[0]+0.0001,current_coordinates[1]+0.0001)
+        elif state == -1:
+            # Backward
+            return (current_coordinates[0]-0.0001,current_coordinates[1]-0.0001)
+        elif state == 0:
+            # Stop
+            return current_coordinates
+
