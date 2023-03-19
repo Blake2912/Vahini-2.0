@@ -18,7 +18,7 @@ class Gps:
     def get_gps_coordinates(self):
         """
         Params: None
-        Returns: Tuple (Lat: float, Lng: float) 
+        Returns: Tuple (Lat: float, Lng: float)
         """
         try:
             file1 = open("/home/pi/gps/LatLong.txt", "a")
