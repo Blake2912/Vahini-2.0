@@ -40,7 +40,6 @@ class Automation:
     def automate_linear(self):
         # Instatintiating the gps and drive classes here
         gps = Gps()
-        drive = Drive()
         path = CmritField().find_shortest_route(
             self.start_coordinates.point_name, 
             self.end_coordinates.point_name
