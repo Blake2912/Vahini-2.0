@@ -46,8 +46,8 @@ def right():
 @app.route("/automate_vehicle")
 def automate_vehicle():
     # TODO:: Instantiate the class and call required functions
-    finalPoint = Coordinates('basic_science',(12.96626,77.71211))
-    initPoint = Coordinates('ganesha_statue',(12.96598,77.71148))
+    initPoint = Coordinates('basic_science',(12.96626,77.71211))
+    finalPoint = Coordinates('ganesha_statue',(12.96598,77.71148))
     automate_drive = Automation(initPoint,finalPoint)
     automate_drive.automate_linear()
     return "a"
@@ -55,6 +55,5 @@ def automate_vehicle():
 
 # TODO::Uncomment this when deploying it in RaspberryPi
 if __name__ == "__main__":
-    current_coord = [0, 0]
-    destination_coord = [12.964224333333334, 77.70739866666666]
+    print("Inside Main")
 #     app.run(host='0.0.0.0', debug=True)

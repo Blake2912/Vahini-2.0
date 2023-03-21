@@ -58,5 +58,5 @@ pip install -r requirements.txt
 4. Run the flask server
 
 ```
-flask run app.py
+flask run
 ```
