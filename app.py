@@ -47,10 +47,17 @@ def right():
 
 @app.route("/automate_vehicle")
 def automate_vehicle():
+
     # TODO:: Instantiate the class and call required functions
+
     initPoint = Coordinates('basic_science', (12.96626, 77.71211))
     finalPoint = Coordinates('ganesha_statue', (12.96598, 77.71148))
     automate_drive = Automation(initPoint, finalPoint)
+
+    initPoint = Coordinates('basic_science', (12.96626, 77.71211))
+    finalPoint = Coordinates('ganesha_statue', (12.96598, 77.71148))
+    automate_drive = Automation(initPoint, finalPoint)
+
     automate_drive.automate_linear()
     return "a"
 
