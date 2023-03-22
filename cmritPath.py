@@ -88,6 +88,6 @@ class CmritField:
         shortest_route_map.save('output/route.html')
 
 
-cmritPath = CmritField()
-cmritPath.save_graph()
-cmritPath.find_shortest_route()
+# cmritPath = CmritField()
+# cmritPath.save_graph()
+# cmritPath.find_shortest_route()
