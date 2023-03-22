@@ -56,6 +56,15 @@
                 return false;
               });
             });
+            $(function() {
+              $('a#tree').bind('click', function() {
+                $.getJSON('/tree',
+                    function(data) {
+                    //do nothing
+                });
+                return false;
+              });
+            });
     </script>
       <div class='container'>
         <form>
