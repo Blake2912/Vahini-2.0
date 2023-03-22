@@ -42,9 +42,12 @@ class CmritField:
         G.add_node('hostel_turn', y=12.96696, x=77.71111, street_count=3)
         G.add_edge('ganesha_statue', 'hostel_turn', length=300)
         G.add_edge('volley_ball_court', 'hostel_turn', length=200)
-        print(list(G.nodes))
+        # print(list(G.nodes))
 
+    def graph(self):
+        return self.G
         # Plot the graph and save it to a file  in output folder
+
     def save_graph(self):
         fig, ax = ox.plot_graph(self.G, show=False, close=False)
         fig.savefig('output/graph.png', dpi=300,
@@ -69,6 +72,6 @@ class CmritField:
         shortest_route_map.save('output/route.html')
 
 
-cmritPath = CmritField()
-cmritPath.save_graph()
-cmritPath.find_shortest_route()
+# cmritPath = CmritField()
+# cmritPath.save_graph()
+# cmritPath.find_shortest_route()
