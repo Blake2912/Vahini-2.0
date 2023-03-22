@@ -37,8 +37,16 @@ class CmritField:
 
         # Hostel Turn node
         G.add_node('hostel_turn', y=12.96696, x=77.71111, street_count=3)
-        G.add_edge('ganesha_statue', 'hostel_turn', length=300)
-        G.add_edge('volley_ball_court', 'hostel_turn', length=200)
+
+        G.add_edges_from([('teacher_parking', 'basic_science'),
+                          ('basic_science', 'teacher_parking'),
+                          ('basic_science', 'ganesha_statue'),
+                          ('ganesha_statue', 'basic_science'),
+                          ('ganesha_statue', 'hostel_turn'),
+                          ('hostel_turn', 'ganesha_statue'),
+                          ('volley_ball_court', 'hostel_turn'),
+                          ('hostel_turn', 'volley_ball_court')], length=300)
+
         # print(list(G.nodes))
 
     def graph(self):
