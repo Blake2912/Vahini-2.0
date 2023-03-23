@@ -3,6 +3,7 @@ from drive import Drive
 from automation import Automation
 from coordinates import Coordinates
 from geocodeTree import GeocodeTree
+
 app = Flask(__name__)
 
 driver = Drive()
@@ -59,13 +60,11 @@ def automate_vehicle():
 def init_tree():
     global gt
     gt = GeocodeTree()
-
     return "a"
 
 
 @app.route("/add_tree")
 def tree():
-
     gt.add_tree([77.7111, 12.96026])
     print("hi")
     return "a"
@@ -73,9 +72,7 @@ def tree():
 
 @app.route("/stop_tree")
 def stop_tree():
-
     gt.save_and_return()
-
     return "a"
 
 
