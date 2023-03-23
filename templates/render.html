@@ -56,15 +56,7 @@
                 return false;
               });
             });
-            $(function() {
-              $('a#init_tree').bind('click', function() {
-                $.getJSON('/init_tree',
-                    function(data) {
-                    //do nothing
-                });
-                return false;
-              });
-            });
+            
             $(function() {
               $('a#add_tree').bind('click', function() {
                 $.getJSON('/add_tree',
@@ -99,7 +91,6 @@
         
       <form>
         <p>Tree Section</p>
-        <a href=# id=init_tree><button class='btn btn-default'>Initialise</button></a>
         <a href=# id=add_tree><button class='btn btn-default'>Add Tree</button></a>
         <a href=# id=save><button class='btn btn-default'>Save</button></a>
       </form>
