@@ -65,13 +65,12 @@ def init_tree():
 
 @app.route("/add_tree")
 def tree():
-    gt.add_tree([77.7111, 12.96026])
-    print("hi")
+    gt.add_tree([12.96691, 77.71112])
     return "a"
 
 
-@app.route("/stop_tree")
-def stop_tree():
+@app.route("/save")
+def save():
     gt.save_and_return()
     return "a"
 
