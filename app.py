@@ -55,11 +55,27 @@ def automate_vehicle():
     return "a"
 
 
-@app.route("/tree")
-def tree():
+@app.route("/init_tree")
+def init_tree():
+    global gt
     gt = GeocodeTree()
-    gt.add_tree([77.71111, 12.96026])
+
+    return "a"
+
+
+@app.route("/add_tree")
+def tree():
+
+    gt.add_tree([77.7111, 12.96026])
     print("hi")
+    return "a"
+
+
+@app.route("/stop_tree")
+def stop_tree():
+
+    gt.save_and_return()
+
     return "a"
 
 
