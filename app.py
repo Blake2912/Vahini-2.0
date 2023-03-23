@@ -7,6 +7,7 @@ from geocodeTree import GeocodeTree
 app = Flask(__name__)
 
 driver = Drive()
+gt = GeocodeTree()
 
 
 @app.route("/")
@@ -58,7 +59,6 @@ def automate_vehicle():
 
 @app.route("/add_tree")
 def tree():
-    gt = GeocodeTree()
     gt.add_tree([12.96691, 77.71112])
     return "a"
 
