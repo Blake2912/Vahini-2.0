@@ -57,8 +57,26 @@
               });
             });
             $(function() {
-              $('a#tree').bind('click', function() {
-                $.getJSON('/tree',
+              $('a#init_tree').bind('click', function() {
+                $.getJSON('/init_tree',
+                    function(data) {
+                    //do nothing
+                });
+                return false;
+              });
+            });
+            $(function() {
+              $('a#add_tree').bind('click', function() {
+                $.getJSON('/add_tree',
+                    function(data) {
+                    //do nothing
+                });
+                return false;
+              });
+            });
+            $(function() {
+              $('a#stop_tree').bind('click', function() {
+                $.getJSON('/stop_tree',
                     function(data) {
                     //do nothing
                 });
@@ -67,6 +85,7 @@
             });
     </script>
       <div class='container'>
+        
         <form>
            <a href=# id=forward><button class='btn btn-default'>forward</button></a>
            <a href=# id=reverse><button class='btn btn-default'>reverse</button></a>
@@ -74,8 +93,16 @@
            <a href=# id=left><button class='btn btn-default'>left</button></a>
            <a href=# id=right><button class='btn btn-default'>right</button></a>
            <a href=# id=automate><button class='btn btn-default'>automate</button></a>
-           <a href=# id=tree><button class='btn btn-default'>Add Tree</button></a>
         </form>
       </div>
+      <div class='container'>
+        
+      <form>
+        <p>Tree Section</p>
+        <a href=# id=init_tree><button class='btn btn-default'>Initialise</button></a>
+        <a href=# id=add_tree><button class='btn btn-default'>Add Tree</button></a>
+        <a href=# id=stop_tree><button class='btn btn-default'>Stop</button></a>
+      </form>
+    </div>
     </body>
 </html>
