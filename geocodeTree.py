@@ -18,6 +18,7 @@ class GeocodeTree:
         self.G.add_node(tree_name, x=coord[1], y=coord[0], street_count=3)
         self.G.add_edge(tree_name, nearest_node)
         print(self.G.nodes)
+        return self.G
 
     def save_and_return(self):
         with open("output/geocode_tree.pkl", "wb") as f:
