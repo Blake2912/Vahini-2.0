@@ -14,9 +14,9 @@ class GeocodeTree:
     def add_tree(self, coord):
         self.tree_count += 1
         tree_name = f"t-{self.tree_count}"
-
-        self.G.add_node(tree_name, x=coord[0], y=coord[1], street_count=3)
-
+        nearest_node = ox.nearest_nodes(self.G, coord[0], coord[1])
+        self.G.add_node(tree_name, x=coord[1], y=coord[0], street_count=3)
+        self.G.add_edge(tree_name, nearest_node)
         print(self.G.nodes)
 
     def save_and_return(self):

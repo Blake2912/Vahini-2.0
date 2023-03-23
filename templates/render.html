@@ -75,8 +75,8 @@
               });
             });
             $(function() {
-              $('a#stop_tree').bind('click', function() {
-                $.getJSON('/stop_tree',
+              $('a#save').bind('click', function() {
+                $.getJSON('/save',
                     function(data) {
                     //do nothing
                 });
@@ -101,7 +101,7 @@
         <p>Tree Section</p>
         <a href=# id=init_tree><button class='btn btn-default'>Initialise</button></a>
         <a href=# id=add_tree><button class='btn btn-default'>Add Tree</button></a>
-        <a href=# id=stop_tree><button class='btn btn-default'>Stop</button></a>
+        <a href=# id=save><button class='btn btn-default'>Save</button></a>
       </form>
     </div>
     </body>
