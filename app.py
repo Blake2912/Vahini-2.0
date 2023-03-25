@@ -1,14 +1,22 @@
 from flask import Flask, render_template
 from drive import Drive
+from automation import Automation
+from coordinates import Coordinates
+from geocodeTree import GeocodeTree
 
 app = Flask(__name__)
+
 driver = Drive()
+gt = GeocodeTree()
+
 
 @app.route("/")
 def render():
     return render_template("render.html")
 
 # background process happening without any refreshing
+
+
 @app.route('/forward')
 def forward():
     driver.forward()
@@ -41,12 +49,27 @@ def right():
 
 @app.route("/automate_vehicle")
 def automate_vehicle():
-    print("TODO")
+    # TODO:: Instantiate the class and call required functions
+    initPoint = Coordinates('basic_science', (12.96626, 77.71211))
+    finalPoint = Coordinates('ganesha_statue', (12.96598, 77.71148))
+    automate_drive = Automation(initPoint, finalPoint)
+    automate_drive.automate_linear()
+    return "a"
+
+
+@app.route("/add_tree")
+def tree():
+    gt.add_tree([12.96691, 77.71112])
+    return "a"
+
+
+@app.route("/save")
+def save():
+    gt.save_and_return()
     return "a"
 
 
 # TODO::Uncomment this when deploying it in RaspberryPi
 if __name__ == "__main__":
-    current_coord = [0, 0]
-    destination_coord = [12.964224333333334, 77.70739866666666]
-#     app.run(host='0.0.0.0', debug=True)
+    print("Inside Main")
+    # app.run(host='0.0.0.0', debug=True)

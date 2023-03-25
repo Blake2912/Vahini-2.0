@@ -30,21 +30,30 @@ class CmritField:
         G = self.G
         # adding node basic_science and connecting it to the existing graph (from openstreet)
         # Basic Science Node
-        # we can add nodes & edges like this..
         G.add_node('basic_science', y=12.96626, x=77.71211, street_count=3)
-        G.add_edge('teacher_parking', 'basic_science', length=200)
 
         # Ganesh statue node
         G.add_node('ganesha_statue', y=12.96598, x=77.71148, street_count=3)
-        G.add_edge('basic_science', 'ganesha_statue', length=200)
 
         # Hostel Turn node
         G.add_node('hostel_turn', y=12.96696, x=77.71111, street_count=3)
-        G.add_edge('ganesha_statue', 'hostel_turn', length=300)
-        G.add_edge('volley_ball_court', 'hostel_turn', length=200)
-        print(list(G.nodes))
+        
+        #adding edges 
+        G.add_edges_from([('teacher_parking', 'basic_science'),
+                          ('basic_science', 'teacher_parking'),
+                          ('basic_science', 'ganesha_statue'),
+                          ('ganesha_statue', 'basic_science'),
+                          ('ganesha_statue', 'hostel_turn'),
+                          ('hostel_turn', 'ganesha_statue'),
+                          ('volley_ball_court', 'hostel_turn'),
+                          ('hostel_turn', 'volley_ball_court')], length=300)
 
+        # print(list(G.nodes))
+
+    def graph(self):
+        return self.G
         # Plot the graph and save it to a file  in output folder
+
     def save_graph(self):
         fig, ax = ox.plot_graph(self.G, show=False, close=False)
         fig.savefig('output/graph.png', dpi=300,
@@ -69,6 +78,6 @@ class CmritField:
         shortest_route_map.save('output/route.html')
 
 
-cmritPath = CmritField()
-cmritPath.save_graph()
-cmritPath.find_shortest_route()
+# cmritPath = CmritField()
+# cmritPath.save_graph()
+# cmritPath.find_shortest_route()
