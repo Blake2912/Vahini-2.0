@@ -1,16 +1,21 @@
 from coordinates import Coordinates
 
-# Origin/Node 1
-node1 = Coordinates("Node_1", (12.96754,77.71383))
-
-# Tree 1
-tree1 = Coordinates("Tree_1", (12.96749,77.71359))
-
-# Tree 2
-tree2 = Coordinates("Tree_2", (12.96743,77.71336))
-
-# Tree 3
-tree3 = Coordinates("Tree_3", (12.96738,77.71308))
-
-# Dest/Node 2
-node2 = Coordinates("Node_2", (12.96715,77.71187))
+# basic_science
+# |
+# V
+tree1 = Coordinates("tree1", [12.96620, 77.71203])
+tree2 = Coordinates("tree2", [12.96612, 77.71179])
+tree3 = Coordinates("tree3", [12.96603, 77.71156])
+# ganesha_statue
+# |
+# V
+tree4 = Coordinates("tree4", [12.96608, 77.71141])
+tree5 = Coordinates("tree5", [12.96643, 77.71129])
+tree6 = Coordinates("tree6", [12.96682, 77.71115])
+# hostel
+# |
+# V
+tree7 = Coordinates("tree7", [12.96698, 77.71121])
+tree8 = Coordinates("tree8", [12.96698, 77.71121])
+tree9 = Coordinates("tree9", [12.96710, 77.71171])
+# volleyball_court
