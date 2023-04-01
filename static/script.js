@@ -29,7 +29,7 @@ PARTICLES.forEach((P) => {
   );
 });
 automatebttn.addEventListener('click', function () {
-  fetch('/automate').then(console.log('automate'));
+  fetch('/automate_vehicle').then(console.log('automate'));
 });
 right.addEventListener('click', function () {
   fetch('/right').then(console.log('right'));
