@@ -1,9 +1,14 @@
 # This module will have the function which will get the gps coordinates from the GPS Module
-import serial
 import io
 import time
 import string
 import pynmea2
+
+try:
+    import serial
+
+except:
+    print("Serial Module not found!")
 
 class Gps:
     def __init__(self):
