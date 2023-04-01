@@ -1,0 +1,101 @@
+<html>
+    <body>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script type=text/javascript>
+            $(function() {
+              $('a#forward').bind('click', function() {
+                $.getJSON('/forward',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+            $(function() {
+              $('a#reverse').bind('click', function() {
+                $.getJSON('/reverse',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+            $(function() {
+              $('a#stop').bind('click', function() {
+                $.getJSON('/stop',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+            $(function() {
+              $('a#left').bind('click', function() {
+                $.getJSON('/left',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+            $(function() {
+              $('a#right').bind('click', function() {
+                $.getJSON('/right',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+            $(function() {
+              $('a#automate').bind('click', function() {
+                $.getJSON('/automate_vehicle',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+            
+            $(function() {
+              $('a#add_tree').bind('click', function() {
+                $.getJSON('/add_tree',
+                    function(data) {
+                    //do nothing
+                });
+                return false;
+              });
+            });
+            $(function() {
+              $('a#save').bind('click', function() {
+                $.getJSON('/save',
+                    function(data) {
+                    //do nothing
+                });
+                return false;
+              });
+            });
+    </script>
+      <div class='container'>
+        
+        <form>
+           <a href=# id=forward><button class='btn btn-default'>forward</button></a>
+           <a href=# id=reverse><button class='btn btn-default'>reverse</button></a>
+           <a href=# id=stop><button class='btn btn-default'>stop</button></a>
+           <a href=# id=left><button class='btn btn-default'>left</button></a>
+           <a href=# id=right><button class='btn btn-default'>right</button></a>
+           <a href=# id=automate><button class='btn btn-default'>automate</button></a>
+        </form>
+      </div>
+      <div class='container'>
+        
+      <form>
+        <h3>Tree Section</h3>
+        <a href=# id=add_tree><button class='btn btn-default'>Add Tree</button></a>
+     <!-- Click "Save" : Path with Tree nodes and Pre-defined nodes saved to a pickle file --> 
+        <p>Click "Save" : Path with Tree nodes and Pre-defined nodes saved to a pickle file </p>
+        <a href=# id=save><button class='btn btn-default'>Save</button></a>
+      </form>
+    </div>
+    </body>
+</html>
