@@ -1,7 +1,7 @@
 from coordinates import Coordinates
 
 # basic_science
-basic_science = Coordinates("basic_scince", [12.96626, 77.71211])
+basic_science = Coordinates("basic_science", [12.96626, 77.71211])
 # |
 # V
 tree1 = Coordinates("tree1", [12.96620, 77.71203])
