@@ -1,15 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
 from drive import Drive
 from automation import Automation
 from coordinates import Coordinates
 from geocodeTree import GeocodeTree
 import test_coordinates as tc
+from cmritPath import CmritField
 
 app = Flask(__name__)
 
 driver = Drive()
 gt = GeocodeTree()
-
+master_graph = CmritField() # This 
 
 @app.route("/")
 def render():
@@ -71,11 +72,21 @@ def save():
     gt.save_and_return()
     return "a"
 
+@app.route("/fetch-all-nodes")
+def fetch_nodes():
+    return jsonify(master_graph.return_all_nodes())
+
+@app.route("/fetch-neighbours", methods=["POST"])
+def fetch_neighbours():
+    current_node = request.form.get("current_node")
+    return jsonify(master_graph.return_adjacent_nodes(current_node))
+
+
 ##########################################
 # for test purposes
 # basic_science to ganesha_statue
 
-
+"""
 def test_stretch_1():
     start = tc.basic_science.point_name
     end = tc.ganesha_statue.point_name
@@ -98,6 +109,7 @@ def test_stretch_2():
 test_stretch_1()
 test_stretch_2()
 ##########################################
+"""
 
 
 # TODO::Uncomment this when deploying it in RaspberryPi
