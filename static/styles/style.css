@@ -335,7 +335,7 @@ button svg {
 	inline-size: 1.25em;
 	translate: -25% -5%;
 }
-#left,#right,#forward,#reverse{
+#left,#right,#forward,#reverse,#stop{
   color : whitesmoke;
   
 }
