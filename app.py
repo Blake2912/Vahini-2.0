@@ -14,9 +14,9 @@ gt = GeocodeTree()
 def render():
     return render_template("render.html")
 
-@app.route('/map')
+@app.route('/tree')
 def map():
-    return render_template('map.html')
+    return render_template('tree.html')
 
 # background process happening without any refreshing
 
