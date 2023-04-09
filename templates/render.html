@@ -17,8 +17,10 @@
   <button class="button" id="forward">FORWARD</button>
   <button class="button" id="reverse">REVERSE</button>
 </div>
-<a href="./map.html">
-    <button class="button" id="map">MAP SIMULATION</button></a>
+<a href="{{ url_for('map') }}">
+    <button class="button" id="map">MAP SIMULATION</button>
+</a>
+
 <div class=sparkle-button>
     <span aria-hidden=true class=particle-pen>
         <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
