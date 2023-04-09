@@ -3,6 +3,7 @@
 *:after,
 *:before {
 	box-sizing: border-box;
+	
 }
 :root {
 	--transition: 0.25s;
@@ -12,6 +13,7 @@ body{
     background-color: black;
     color: aliceblue;
     font-family: 'Roboto', sans-serif;
+	
 }
 body {
 	--active: 0;
@@ -335,7 +337,12 @@ button svg {
 	inline-size: 1.25em;
 	translate: -25% -5%;
 }
-#left,#right,#forward,#reverse,#stop{
+#left,#right,#forward,#reverse,#stop,#map{
   color : whitesmoke;
   
 }
+
+a {
+  text-decoration: none;
+}
+
