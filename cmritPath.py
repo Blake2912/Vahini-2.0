@@ -37,9 +37,22 @@ class CmritField:
 
         # Hostel Turn node
         G.add_node('hostel_turn', y=12.96696, x=77.71111, street_count=3)
-        
-        #adding edges 
-        G.add_edges_from([('teacher_parking', 'basic_science'),
+
+        # adding edges
+        # G.add_edges_from([('teacher_parking', 'basic_science'),
+        #                   ('basic_science', 'teacher_parking'),
+        #                   ('basic_science', 'ganesha_statue'),
+        #                   ('ganesha_statue', 'basic_science'),
+        #                   ('ganesha_statue', 'hostel_turn'),
+        #                   ('hostel_turn', 'ganesha_statue'),
+        #                   ('volley_ball_court', 'hostel_turn'),
+        #                   ('hostel_turn', 'volley_ball_court')], length=300)
+
+        # print(list(G.nodes))
+        # print(G.nodes['volley_ball_court']['y'])
+    
+    def add_edges(self):
+        self.G.add_edges_from([('teacher_parking', 'basic_science'),
                           ('basic_science', 'teacher_parking'),
                           ('basic_science', 'ganesha_statue'),
                           ('ganesha_statue', 'basic_science'),
@@ -47,8 +60,6 @@ class CmritField:
                           ('hostel_turn', 'ganesha_statue'),
                           ('volley_ball_court', 'hostel_turn'),
                           ('hostel_turn', 'volley_ball_court')], length=300)
-
-        # print(list(G.nodes))
 
     def graph(self):
         return self.G
@@ -76,6 +87,25 @@ class CmritField:
         shortest_route_map = ox.plot_route_folium(G, shortest_route)
         # This saves it on html file in output folder
         shortest_route_map.save('output/route.html')
+    
+    def return_all_nodes(self):
+        """
+        This function returns all the nodes present in the graph
+        Returns : List
+        """
+        return list(self.G)
+
+    def return_adjacent_nodes(self, current_node):
+        """
+        Params: str - current_node
+        Returns: List
+        """
+        self.add_edges() # Calling this function to connect all the newly created nodes
+        try:
+            return [n for n in self.G.neighbors(current_node)]
+        except nx.exception.NetworkXError:
+            return "Node not Found!"
+    
 
 
 # cmritPath = CmritField()

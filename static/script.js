@@ -1,16 +1,11 @@
-const toggle = document.getElementById('toggle');
+
 const automatebttn = document.getElementById('automate');
 const right = document.getElementById('right');
 const left = document.getElementById('left');
 const forward = document.getElementById('forward');
 const reverse = document.getElementById('reverse');
-toggle.addEventListener('change', function () {
-  if (this.checked) {
-    fetch('/on').then(console.log('on'));
-  } else {
-        fetch('/off').then(console.log('off'));
-  }
-});
+const stop = document.getElementById('stop');
+
 const RANDOM = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const PARTICLES = document.querySelectorAll('.particle');
 PARTICLES.forEach((P) => {
@@ -46,6 +41,11 @@ forward.addEventListener('click', function () {
 reverse.addEventListener('click', function () {
     fetch('/reverse').then(console.log('reverse'));
 }   
+);
+
+stop.addEventListener('click', function () {
+    fetch('/stop').then(console.log('stop'));
+}
 );
 
 
