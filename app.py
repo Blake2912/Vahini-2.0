@@ -110,9 +110,29 @@ def test_stretch_2():
     gt.add_tree(tc.tree6.point_coordinate, start, end)
     gt.save_and_return()
 
+# hostel_turn to volley ball court
+def test_stretch_3():
+    start = tc.hostel_turn.point_name
+    end = tc.volleyball_court.point_name
+
+    gt.add_tree(tc.tree7.point_coordinate, start, end)
+    gt.add_tree(tc.tree8.point_coordinate, start, end)
+    gt.add_tree(tc.tree9.point_coordinate, start, end)
+    gt.save_and_return()
+
+def test_stretch_4():
+    start = tc.volleyball_court.point_name
+    end = tc.basic_science.point_name
+    
+    gt.add_tree(tc.tree10.point_coordinate, start, end)
+    gt.add_tree(tc.tree11.point_coordinate, start, end)
+    gt.add_tree(tc.tree12.point_coordinate, start, end)
+    gt.save_and_return()
 
 test_stretch_1()
 test_stretch_2()
+test_stretch_3()
+test_stretch_4()
 ##########################################
 """
 
