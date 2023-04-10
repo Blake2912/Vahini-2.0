@@ -16,6 +16,10 @@ master_graph = CmritField() # This
 def render():
     return render_template("render.html")
 
+@app.route('/tree')
+def map():
+    return render_template('tree.html')
+
 # background process happening without any refreshing
 
 
@@ -78,8 +82,9 @@ def fetch_nodes():
 
 @app.route("/fetch-neighbours", methods=["POST"])
 def fetch_neighbours():
-    current_node = request.form.get("current_node")
+    current_node = request.get_json().get("current_node")
     return jsonify(master_graph.return_adjacent_nodes(current_node))
+
 
 
 ##########################################

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/tree.css') }}">
+
+    <title>FIELD SETUP</title>
+</head>
+<body>
+    
+    <div id="select_container">
+    <label for="start">Select a start node:</label>
+    <select id="start">
+        <option value="">Select a start node</option>
+        <!-- Options will be added dynamically here -->
+    </select>
+    
+    <label for="end">Select an end node:</label>
+    <select id="end">
+        <option value="">Select an end node</option>
+        <!-- Options will be added dynamically here -->
+    </select></div>
+<div id="buttons">
+<div class="galaxy-button" id="add-tree-button">
+    <button>
+        <span class="spark"></span>
+        <span class="backdrop"></span>
+        <span class="galaxy__container">
+            <span class="star star--static"></span>
+            <span class="star star--static"></span>
+            <span class="star star--static"></span>
+            <span class="star star--static"></span>
+        </span>
+        <span class="galaxy">
+            <span class="galaxy__ring">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </span>
+        </span>
+        <span class="text">ADD TREE</span>
+    </button>
+    <div class="bodydrop"></div>
+</div>
+
+<div class="galaxy-button" id="save-button">
+    <button>
+        <span class="spark"></span>
+        <span class="backdrop"></span>
+        <span class="galaxy__container">
+            <span class="star star--static"></span>
+            <span class="star star--static"></span>
+            <span class="star star--static"></span>
+            <span class="star star--static"></span>
+        </span>
+        <span class="galaxy">
+            <span class="galaxy__ring">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </span>
+        </span>
+        <span class="text">SAVE</span>
+    </button>
+    <div class="bodydrop"></div>
+</div>
+</div>
+    
+    <script src="{{ url_for('static',filename='tree.js') }}"> </script>
+
+</body>
+
+</html>

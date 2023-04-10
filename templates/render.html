@@ -9,20 +9,18 @@
     <title>Vahini Navigation Controls</title>
 </head>
 <body>
-    <div id = 'switch'>
-    OFF
-    <label class="switch">
-        <input type="checkbox" id="toggle">
-        <span class="slider"></span>
-    </label>
-    ON
-</div>
+   
+<button class="button " id="stop">STOP</button>
 <div class="button-container">
   <button class="button " id="left">TURN LEFT</button>
   <button class="button" id="right">TURN RIGHT</button>
   <button class="button" id="forward">FORWARD</button>
   <button class="button" id="reverse">REVERSE</button>
 </div>
+<a href="{{ url_for('map') }}">
+    <button class="button" id="tree">FIELD SETUP</button>
+</a>
+
 <div class=sparkle-button>
     <span aria-hidden=true class=particle-pen>
         <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
