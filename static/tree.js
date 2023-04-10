@@ -34,3 +34,27 @@ startSelect.addEventListener('change', (event) => {
       });
     });
 });
+
+
+const addTreeButton = document.getElementById('add-tree-button');
+const saveButton = document.getElementById('save-button');
+
+addTreeButton.addEventListener('click', () => {
+  fetch('/add_tree')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      // Do something with the response data if needed
+    })
+    .catch((error) => console.error(error));
+});
+
+saveButton.addEventListener('click', () => {
+  fetch('/save')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      // Do something with the response data if needed
+    })
+    .catch((error) => console.error(error));
+});
