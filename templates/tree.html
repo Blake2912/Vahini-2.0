@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADD TREES</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/tree.css') }}">
+
+    <title>FIELD SETUP</title>
 </head>
 <body>
-    ADD YOUR TREES HERE
+    
+    
+    <label for="start">Select a start node:</label>
+    <select id="start">
+        <option value="">Select a node</option>
+        <!-- Options will be added dynamically here -->
+    </select>
+    
+    <label for="end">Select an end node:</label>
+    <select id="end">
+        <option value="">Select a node</option>
+        <!-- Options will be added dynamically here -->
+    </select>
+
+
+    </div>
+    
+    <script src="{{ url_for('static',filename='tree.js') }}"> </script>
+
 </body>
+
 </html>
