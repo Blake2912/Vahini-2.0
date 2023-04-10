@@ -25,7 +25,7 @@ body {
 	overflow: hidden;
 }
 
-button,select{
+button ,select{
 	--cut: 0.1em;
 	--active: 0;
 	--bg:
@@ -273,16 +273,15 @@ button svg {
 	inline-size: 1.25em;
 	translate: -25% -5%;
 }
+
+label{
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  /* display: none; */
+	/* font-weight: 500;   */
+}
 select{
     color: white;
-}
-label{
-    font-family: system-ui, sans-serif;
-    font-size: 2rem;
-	font-weight: 500;
-}
-#select_container {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+    margin: 1rem;
 }
