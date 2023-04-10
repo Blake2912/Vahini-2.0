@@ -63,7 +63,7 @@ button ,select{
 	overflow: hidden;
 }
 
-button:active {
+button:active,select:active {
   scale: 1;
 }
 
@@ -277,11 +277,12 @@ button svg {
 label{
   font-family: system-ui, sans-serif;
   font-size: 2rem;
-  text-align: center;
+    text-align: center;
+
   /* display: none; */
 	/* font-weight: 500;   */
 }
 select{
     color: white;
-    margin: 1rem;
+    margin: 0.5rem;
 }
