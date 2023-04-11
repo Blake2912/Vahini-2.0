@@ -28,6 +28,9 @@ class CmritField:
                      4159727902: 'teacher_parking', 4159727907: 'volley_ball_court'}
         self.G = nx.relabel_nodes(self.G, new_names)
         G = self.G
+        G.remove_node('cmrit_entrance')
+        G.remove_node('teacher_parking')
+        G.remove_node('volley_ball_court')
 
         # adding node basic_science and connecting it to the existing graph (from openstreet)
         # Basic Science Node
@@ -38,13 +41,22 @@ class CmritField:
 
         # Hostel Turn node
         G.add_node('hostel_turn', y=12.96696, x=77.71111, street_count=3)
-        G.remove_node('cmrit_entrance')
+
+        # VolleyBall Court node
+        G.add_node('volley_ball_court', y=12.9671086,
+                   x=77.7118638, street_count=3)
+
+        # Teacher's Parking node
+        G.add_node('teacher_parking', y=12.9667974,
+                   x=77.711963, street_count=3)
 
         # print(list(G.nodes))
         # print(G.nodes['volley_ball_court']['y'])
 
     def add_edges(self):
-        self.G.add_edges_from([('teacher_parking', 'basic_science'),
+        self.G.add_edges_from([('volley_ball_court', 'teacher_parking'),
+                               ('teacher_parking', 'volley_ball_court'),
+                               ('teacher_parking', 'basic_science'),
                                ('basic_science', 'teacher_parking'),
                                ('basic_science', 'ganesha_statue'),
                                ('ganesha_statue', 'basic_science'),
