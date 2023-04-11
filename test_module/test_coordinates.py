@@ -18,14 +18,19 @@ tree6 = Coordinates("tree6", [12.96682, 77.71115])
 hostel_turn = Coordinates("hostel_turn", [12.96696, 77.71111])
 # |
 # V
-tree7 = Coordinates("tree7", [12.96698, 77.71121])
-tree8 = Coordinates("tree8", [12.96698, 77.71121])
-tree9 = Coordinates("tree9", [12.96710, 77.71171])
+tree7 = Coordinates("tree7", [12.96699, 77.71124])
+tree8 = Coordinates("tree8", [12.96704, 77.71144])
+tree9 = Coordinates("tree9", [12.96709, 77.71169])
 # volleyball_court
 volleyball_court = Coordinates("volley_ball_court", [12.9671086, 77.7118638])
-
-# Volleyball court to teacher's parking
-
-tree10 = Coordinates("tree10", [12.96697, 77.71191])
-tree11 = Coordinates("tree11", [12.96686, 77.71195])
-tree12 = Coordinates("tree12", [12.96672, 77.71199])
+# |
+# V
+tree10 = Coordinates("tree10", [12.96700, 77.71190])
+tree11 = Coordinates("tree11", [12.96692, 77.71192])
+# teacher_parking
+teacher_parking = Coordinates("teacher_parking", [12.9667974, 77.711963])
+# |
+# V
+tree11 = Coordinates("tree11", [12.96659, 77.71202])
+tree12 = Coordinates("tree12", [12.96645, 77.71206])
+# to basic_science
