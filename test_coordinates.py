@@ -23,9 +23,13 @@ tree8 = Coordinates("tree8", [12.96698, 77.71121])
 tree9 = Coordinates("tree9", [12.96710, 77.71171])
 # volleyball_court
 volleyball_court = Coordinates("volley_ball_court", [12.9671086, 77.7118638])
-
-# Volleyball court to teacher's parking
-
-tree10 = Coordinates("tree10", [12.96697, 77.71191])
-tree11 = Coordinates("tree11", [12.96686, 77.71195])
-tree12 = Coordinates("tree12", [12.96672, 77.71199])
+# |
+# V
+tree10 = Coordinates("tree10", [12.96695, 77.71192])
+# teacher_parking
+teacher_parking = Coordinates("teacher_parking", [12.9667974, 77.711963])
+# |
+# V
+tree11 = Coordinates("tree10", [12.96659, 77.71202])
+tree12 = Coordinates("tree11", [12.96645, 77.71206])
+# to basic_science
