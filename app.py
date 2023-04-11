@@ -5,6 +5,7 @@ from coordinates import Coordinates
 from geocodeTree import GeocodeTree
 import test_module.test_coordinates as tc
 from cmritPath import CmritField
+from test_module.test import TestTree
 
 app = Flask(__name__)
 
@@ -65,12 +66,12 @@ def automate_vehicle():
     return "a"
 
 
-@app.route("/add_tree")
+@app.route("/add_tree", methods=["POST"])
 def tree():
-    gt.add_tree([12.96620, 77.71203])
-    gt.add_tree([12.96612, 77.71179])
-    gt.add_tree([12.96603, 77.71156])
-    return "a"
+    start_node = request.get_json().get("start_node")
+    end_node = request.get_json().get("end_node")
+    TestTree(gt, start_node, end_node)
+    return 'a'
 
 
 @app.route("/save")
@@ -88,55 +89,6 @@ def fetch_nodes():
 def fetch_neighbours():
     current_node = request.get_json().get("current_node")
     return jsonify(master_graph.return_adjacent_nodes(current_node))
-
-
-##########################################
-# for test purposes
-# basic_science to ganesha_statue
-"""
-def test_stretch_1():
-    start = tc.basic_science.point_name
-    end = tc.ganesha_statue.point_name
-    gt.add_tree(tc.tree1.point_coordinate, start, end)
-    gt.add_tree(tc.tree2.point_coordinate, start, end)
-    gt.add_tree(tc.tree3.point_coordinate, start, end)
-    gt.save_and_return()
-
-
-# ganesha_statue to hostel_turn
-def test_stretch_2():
-    start = tc.ganesha_statue.point_name
-    end = tc.hostel_turn.point_name
-    gt.add_tree(tc.tree4.point_coordinate, start, end)
-    gt.add_tree(tc.tree5.point_coordinate, start, end)
-    gt.add_tree(tc.tree6.point_coordinate, start, end)
-    gt.save_and_return()
-
-# hostel_turn to volley ball court
-def test_stretch_3():
-    start = tc.hostel_turn.point_name
-    end = tc.volleyball_court.point_name
-
-    gt.add_tree(tc.tree7.point_coordinate, start, end)
-    gt.add_tree(tc.tree8.point_coordinate, start, end)
-    gt.add_tree(tc.tree9.point_coordinate, start, end)
-    gt.save_and_return()
-
-def test_stretch_4():
-    start = tc.volleyball_court.point_name
-    end = tc.basic_science.point_name
-    
-    gt.add_tree(tc.tree10.point_coordinate, start, end)
-    gt.add_tree(tc.tree11.point_coordinate, start, end)
-    gt.add_tree(tc.tree12.point_coordinate, start, end)
-    gt.save_and_return()
-
-test_stretch_1()
-test_stretch_2()
-test_stretch_3()
-test_stretch_4()
-##########################################
-"""
 
 
 # TODO::Uncomment this when deploying it in RaspberryPi

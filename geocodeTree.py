@@ -26,15 +26,15 @@ class GeocodeTree:
 
     def save_and_return(self):
         for i in range(len(self.tree_list)-1):
-            self.G.add_edge(self.tree_list[i], self.tree_list[i+1],length=200)
-            self.G.add_edge(self.tree_list[i+1], self.tree_list[i],length=200)
+            self.G.add_edge(self.tree_list[i], self.tree_list[i+1], length=200)
+            self.G.add_edge(self.tree_list[i+1], self.tree_list[i], length=200)
 
-        self.G.add_edge(self.tree_list[0], self.start_node,length=200)
-        self.G.add_edge(self.start_node, self.tree_list[0],length=200)
-        self.G.add_edge(self.tree_list[-1], self.end_node,length=200)
-        self.G.add_edge(self.end_node, self.tree_list[-1],length=200)
+        self.G.add_edge(self.tree_list[0], self.start_node, length=200)
+        self.G.add_edge(self.start_node, self.tree_list[0], length=200)
+        self.G.add_edge(self.tree_list[-1], self.end_node, length=200)
+        self.G.add_edge(self.end_node, self.tree_list[-1], length=200)
         with open("output/geocode_tree.pkl", "wb") as f:
             pickle.dump(self.G, f)
         self.tree_list = []
-        cf.save_graph()
+        # cf.save_graph()
         return self.G
