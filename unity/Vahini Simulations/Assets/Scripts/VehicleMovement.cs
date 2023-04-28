@@ -6,9 +6,22 @@ using UnityEngine.AI;
 
 public class VehicleMovement : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    [SerializeField]
-    private Transform movePositionTransform;
+    public Transform path;
+    private List<Transform> nodes = new List<Transform>();
+    private int currentNode = 0;
+    public float maxSteerAngle = 45.0f;
+    public WheelCollider wheelFL;
+    public WheelCollider wheelFR;
+    public WheelCollider wheelBL;
+    public WheelCollider wheelBR;
+    public float maxMotorTorque = 80.0f;
+
+    private float currentSpeed;
+    public float maxSpeed = 80.0f;
+
+    // private NavMeshAgent agent;
+    //[SerializeField]
+    //private Transform movePositionTransform;
 
     [Header("Sensors")]
     public float sensorLength = 3f;
@@ -25,22 +38,69 @@ public class VehicleMovement : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
+        nodes = new List<Transform>();
+        for(int i=0;i< pathTransforms.Length; i++){
+            if(pathTransforms[i] != path.transform){
+                nodes.Add(pathTransforms[i]);
+            } 
+        }   
     }
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        // agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        agent.destination = movePositionTransform.position;
+        // agent.destination = movePositionTransform.position;
+        ApplySteer();
+        Drive();
+        CheckWayPointDistance();
         Sensors();
+    }
+
+    private void Drive()
+    {
+        currentSpeed = 2 * Mathf.PI * wheelBL.radius * wheelBL.rpm * 60/1000;
+        if (currentSpeed < maxSpeed){
+            wheelBL.motorTorque = maxMotorTorque;
+            wheelBL.motorTorque = maxMotorTorque;
+        }
+        else{
+            wheelBL.motorTorque = 0.0f;
+            wheelBL.motorTorque = 0.0f;
+        }
         
+    }
+
+    private void ApplySteer()
+    {
+        Vector3 relativeVector = transform.InverseTransformPoint(nodes[currentNode].position);
+        float newSteer = (relativeVector.x / relativeVector.magnitude) * maxSteerAngle;
+        wheelFL.steerAngle = newSteer;
+        wheelFR.steerAngle = newSteer;
+
+    }
+
+    private void CheckWayPointDistance()
+    {
+        
+        if (Vector3.Distance(transform.position, nodes[currentNode].position) < 3.0f){
+            if ( currentNode == nodes.Count-1){
+                // Stop the vehicle
+                // TODO::Remove this
+                currentNode = 0;
+            }
+            else{
+                currentNode++;
+            }
+            Debug.Log(currentNode);
+        }
     }
 
     private void Sensors(){
