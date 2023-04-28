@@ -17,6 +17,10 @@ public class VehicleMovement : MonoBehaviour
 
     public float frontSideSensorOffsetx = 0.43f;
     public float frontSideSensorAngle = 30f;
+    float avoidMultiplier = 0f;
+
+
+    private bool avoiding = false;
 
 
 
@@ -34,7 +38,7 @@ public class VehicleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // agent.destination = movePositionTransform.position;
+        agent.destination = movePositionTransform.position;
         Sensors();
         
     }
@@ -44,35 +48,60 @@ public class VehicleMovement : MonoBehaviour
         Vector3 sensorStartPos = transform.position;
         sensorStartPos += transform.forward * frontSensorOffsetz;
         sensorStartPos += transform.up * frontSensorOffsety;
+        avoiding = false;
 
         // Front Sesnor
         if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength))
         {
-            Debug.DrawLine(sensorStartPos, hit.point);
+            if(hit.collider.CompareTag("Terrain"))
+            {
+                Debug.DrawLine(sensorStartPos, hit.point);
+                avoiding = true;
+            }
+            
         }
         // Front side right sensor
         sensorStartPos += transform.right * frontSideSensorOffsetx;
         if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength))
         {
-            Debug.DrawLine(sensorStartPos, hit.point);
+            if(hit.collider.CompareTag("Terrain"))
+            {
+                Debug.DrawLine(sensorStartPos, hit.point);
+                avoiding = true;
+                avoidMultiplier -= 1f;
+                
+            }
         }
         // Front Right Angle Sensor
-        if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(frontSideSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
+        else if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(frontSideSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
         {
-            Debug.DrawLine(sensorStartPos, hit.point);
+            if(hit.collider.CompareTag("Terrain"))
+            {
+                Debug.DrawLine(sensorStartPos, hit.point);
+                avoiding = true;
+                avoidMultiplier -= 0.5f;
+            }
         }
         // Front side left sensor
         sensorStartPos -= transform.right * 2 * frontSideSensorOffsetx;
         if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength))
         {
-            Debug.DrawLine(sensorStartPos, hit.point);
+            if(hit.collider.CompareTag("Terrain"))
+            {
+                Debug.DrawLine(sensorStartPos, hit.point);
+                avoiding = true;
+                avoidMultiplier += 1f;
+            }
         }
         // Front Left Angle Sensor
         if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(-frontSideSensorAngle, transform.up) * transform.forward, out hit, sensorLength))
         {
-            Debug.DrawLine(sensorStartPos, hit.point);
+            if(hit.collider.CompareTag("Terrain"))
+            {
+                Debug.DrawLine(sensorStartPos, hit.point);
+                avoiding = true;
+                avoidMultiplier += 0.5f;
+            }
         }
-        
-
     }
 }
