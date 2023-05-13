@@ -7,6 +7,7 @@ TagManager:
   - Tree
   - Terrain
   - Waypoints
+  - Obstacles
   layers:
   - Default
   - TransparentFX
