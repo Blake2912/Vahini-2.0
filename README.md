@@ -46,6 +46,6 @@ For more information regarding virtual environments visit this here: <a href="ht
 
 ## Contributors
 
-- @Blake2912
-- @amartyanambiar
-- @healertrix
+- <a href="https://github.com/healertrix">KC Varun</a>
+- - <a href="https://github.com/amartyanambiar">Amartya Nambiar</a>
+- <a href="https://github.com/healertrix">Abhinav Kumar</a>
