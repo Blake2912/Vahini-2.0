@@ -52,3 +52,4 @@ For more information regarding virtual environments visit this here: <a href="ht
 
 ## Youtube Videos
 - <a href="https://youtu.be/nHu6acrLZ-k">Obstacle Avoidance</a>
+- <a href="https://youtu.be/7e6F6DtVK6c">Obstacle Avoidance Demo</a>
