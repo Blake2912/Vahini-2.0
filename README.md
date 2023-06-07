@@ -51,5 +51,4 @@ For more information regarding virtual environments visit this here: <a href="ht
 - <a href="https://github.com/healertrix">Abhinav Kumar</a>
 
 ## Youtube Videos
-- <a href="https://youtu.be/nHu6acrLZ-k">Obstacle Avoidance</a>
-- <a href="https://youtu.be/7e6F6DtVK6c">Obstacle Avoidance Demo</a>
+- <a href="https://youtube.com/playlist?list=PL5x0Ibn8Cci-sAztetVAzYBtCnMabX7Uo">Knowledge Transfer Playlist</a>
